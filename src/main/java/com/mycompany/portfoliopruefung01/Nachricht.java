@@ -12,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -27,8 +28,11 @@ public class Nachricht implements Serializable {
     private String betreff;
     @Lob
     private String text;
+    @ManyToOne
     private Artikel artikelID;
+    @ManyToOne
     private Benutzer sender;
+    @ManyToOne
     private Benutzer empfaenger;
     private Date datum;
     private Date uhrzeit;

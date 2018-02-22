@@ -34,7 +34,7 @@ public class Artikel implements Serializable {
     @ManyToOne
     private Kategorie kategorie;
     
-    private Date erstellungsdatum;
+    private Date erstellungsDatum;
     private PreisKategorie preisKategorie;
     private int besucherAnzahl;
     
@@ -91,12 +91,12 @@ public class Artikel implements Serializable {
         this.kategorie=kategorie;
     }
     
-    public Date getErstellungsdatum(){
-        return erstellungsdatum;
+    public Date getErstellungsDatum(){
+        return erstellungsDatum;
     }
     
-    public void setErstellungsdatum(Date erstellungsdatum){
-        this.erstellungsdatum=erstellungsdatum;
+    public void setErstellungsDatum(Date erstellungsDatum){
+        this.erstellungsDatum=erstellungsDatum;
     }
     
     public PreisKategorie getPreisKategorie(){

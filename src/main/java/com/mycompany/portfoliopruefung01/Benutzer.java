@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -26,6 +27,7 @@ public class Benutzer implements Serializable {
     private String passwort;
     private String straße;
     private String hausnummer;
+    @ManyToOne
     private Ort ort;
     private String vorname;
     private String nachname;
