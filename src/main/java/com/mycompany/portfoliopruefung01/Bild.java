@@ -5,6 +5,7 @@
  */
 package com.mycompany.portfoliopruefung01;
 
+import java.awt.Image;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,6 +23,8 @@ public class Bild implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private String bezeichnung;
+    private Image bild;
 
     public Long getId() {
         return id;
@@ -31,29 +34,19 @@ public class Bild implements Serializable {
         this.id = id;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Bild)) {
-            return false;
-        }
-        Bild other = (Bild) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "com.mycompany.portfoliopruefung01.Bild[ id=" + id + " ]";
+    public String getBezeichnung(){
+        return bezeichnung;
     }
     
+    public void setBezeichnung(String bezeichnung){
+        this.bezeichnung=bezeichnung;
+    }
+    
+    public Image getBild(){
+        return bild;
+    }
+    
+    public void setBild(Image bild){
+        this.bild=bild;
+    }
 }

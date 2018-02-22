@@ -6,10 +6,12 @@
 package com.mycompany.portfoliopruefung01;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 
 /**
  *
@@ -22,6 +24,14 @@ public class Nachricht implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private String betreff;
+    @Lob
+    private String text;
+    private Artikel artikelID;
+    private Benutzer sender;
+    private Benutzer empfaenger;
+    private Date datum;
+    private Date uhrzeit;
 
     public Long getId() {
         return id;
@@ -31,29 +41,61 @@ public class Nachricht implements Serializable {
         this.id = id;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
+    public String getBetreff(){
+        return betreff;
     }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Nachricht)) {
-            return false;
-        }
-        Nachricht other = (Nachricht) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
+    
+    public void setBetreff(String betreff){
+        this.betreff=betreff;
     }
-
-    @Override
-    public String toString() {
-        return "com.mycompany.portfoliopruefung01.Nachricht[ id=" + id + " ]";
+    
+    public String getText(){
+        return text;
     }
+    
+    public void setText(String text){
+        this.text=text;
+    }
+    
+    public Artikel getArtikelID(){
+        return artikelID;
+    }
+    
+    public void setArtikelID(Artikel artikelID){
+        this.artikelID=artikelID;
+    }
+    
+    public Benutzer getSender(){
+        return sender;
+    }
+    
+    public void setSender(Benutzer sender){
+        this.sender=sender;
+    }
+    
+    public Benutzer getEmpfaenger(){
+        return empfaenger;
+    }
+    
+    public void setEmpfaenger(Benutzer empfaenger){
+        this.empfaenger=empfaenger;
+    }
+    
+    public Date getDatum(){
+        return datum;
+    }
+    
+    public void setDatum(Date datum){
+        this.datum=datum;
+    }
+    
+    public Date getUhrzeit(){
+        return uhrzeit;
+    }
+    
+    public void setUhrzeit(Date uhrzeit){
+        this.uhrzeit=uhrzeit;
+    }
+    
     
 }
