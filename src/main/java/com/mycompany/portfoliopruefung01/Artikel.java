@@ -6,10 +6,12 @@
 package com.mycompany.portfoliopruefung01;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -26,17 +28,17 @@ public class Artikel implements Serializable {
     private String titel;
     private double preis;
     
-    //@ManyToOne
+    @ManyToOne
     private Benutzer verkaeufer;
     
-    //@ManyToOne
+    @ManyToOne
     private Kategorie kategorie;
     
     private Date erstellungsdatum;
     private PreisKategorie preisKategorie;
     private int besucherAnzahl;
     
-    //@ManyToOne
+    @ManyToOne
     private Ort ort;
     
     
