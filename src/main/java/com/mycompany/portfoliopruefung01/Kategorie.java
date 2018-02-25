@@ -23,7 +23,6 @@ public class Kategorie implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long slug;
-    @OneToMany
     private String name;
 
     public Long getSlug() {

@@ -12,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -41,8 +42,9 @@ public class Artikel implements Serializable {
     @ManyToOne
     private Ort ort;
     
-    
-
+    @OneToMany
+    private Bild bild;
+ 
     public Long getId() {
         return id;
     }
@@ -121,6 +123,14 @@ public class Artikel implements Serializable {
     
     public void setOrt(Ort ort){
         this.ort=ort;
+    }
+    
+    public Bild getBild(){
+        return bild;
+    }
+    
+    public void setBild(Bild bild){
+        this.bild=bild;
     }
 }
 

@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -32,7 +33,10 @@ public class Benutzer implements Serializable {
     private String vorname;
     private String nachname;
     private String telefonnummer;
-            
+    @OneToMany(mappedBy="empfaenger")
+    private Nachricht nachrichtEmpfangen;
+    @OneToMany(mappedBy="Sender")
+    private Nachricht nachrichtSenden;
 
     public String getBenutzerName() {
         return benutzerName;
@@ -106,6 +110,19 @@ public class Benutzer implements Serializable {
         this.telefonnummer=telefonnummer;
     }
 
+    public Nachricht getNachrichtEmpfangen(){
+        return nachrichtEmpfangen;
+    }
     
+    public void setNachrichtEmpfangen(Nachricht nachrichtEmpfangen){
+        this.nachrichtEmpfangen=nachrichtEmpfangen;
+    }
     
+    public Nachricht getNachrichtSenden(){
+        return nachrichtSenden;
+    }
+    
+    public void setNachrichtSenden(Nachricht nachrichtSenden){
+        this.nachrichtSenden=nachrichtSenden;
+    }
 }
