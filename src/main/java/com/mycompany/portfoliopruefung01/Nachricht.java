@@ -1,11 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.mycompany.portfoliopruefung01;
 
 import java.io.Serializable;
+import java.sql.Time;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,34 +11,55 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 
-/**
- *
- * @author Vera
- */
+
 @Entity
 public class Nachricht implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-    private String betreff;
+    private long id = 0;
+    
+    private String betreff = "";
+    
     @Lob
-    private String text;
+    private String text = "";
+    
     @ManyToOne
-    private Artikel artikelID;
-    @ManyToOne
+    private Artikel artikel;
+    
+   @ManyToOne
     private Benutzer sender;
+    
     @ManyToOne
     private Benutzer empfaenger;
-    private Date datum;
-    private Date uhrzeit;
+    
+    private Date datum = new Date();
+    private Time uhrzeit;
+    
+    
+    //<editor-fold defaultstate="collapsed" desc="Konstruktoren">
+    public Nachricht() {
+    }
 
-    public Long getId() {
+    public Nachricht(String betreff, String text, Artikel artikel, Benutzer sender, Benutzer empfaenger, Date datum, Time uhrzeit) {
+        this.betreff = betreff;
+        this.text = text;
+        this.artikel = artikel;
+        this.sender = sender;
+        this.empfaenger = empfaenger;
+        this.datum = datum;
+        this.uhrzeit = uhrzeit;
+    }
+    //</editor-fold>
+    
+    //<editor-fold defaultstate="collapsed" desc="Setter und Getter">
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -61,12 +79,12 @@ public class Nachricht implements Serializable {
         this.text=text;
     }
     
-    public Artikel getArtikelID(){
-        return artikelID;
+    public Artikel getArtikel(){
+        return artikel;
     }
     
-    public void setArtikelID(Artikel artikelID){
-        this.artikelID=artikelID;
+    public void setArtikel(Artikel artikel){
+        this.artikel=artikel;
     }
     
     public Benutzer getSender(){
@@ -93,13 +111,12 @@ public class Nachricht implements Serializable {
         this.datum=datum;
     }
     
-    public Date getUhrzeit(){
+    public Time getUhrzeit(){
         return uhrzeit;
     }
     
-    public void setUhrzeit(Date uhrzeit){
+    public void setUhrzeit(Time uhrzeit){
         this.uhrzeit=uhrzeit;
     }
-    
-    
+    //</editor-fold> 
 }

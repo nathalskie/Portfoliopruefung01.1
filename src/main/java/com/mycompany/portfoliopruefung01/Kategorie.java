@@ -1,36 +1,44 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.mycompany.portfoliopruefung01;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-/**
- *
- * @author Vera
- */
+
 @Entity
 public class Kategorie implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long slug;
-    @OneToMany
-    private String name;
+    private long slug = 0;
+    private String name = "";
+    
+    @OneToMany(mappedBy="kategorie")
+    List<Artikel> artikel = new ArrayList<>();
 
-    public Long getSlug() {
+    //<editor-fold defaultstate="collapsed" desc="Konstruktoren">
+    public Kategorie() {
+    }
+
+    public Kategorie(String name) {
+        this.name = name;
+    }
+    //</editor-fold>
+
+    //<editor-fold defaultstate="collapsed" desc="Setter und Getter">
+    public long getSlug() {
         return slug;
     }
 
-    public void setSlug(Long slug) {
+    public void setSlug(long slug) {
         this.slug = slug;
     }
 
@@ -41,4 +49,5 @@ public class Kategorie implements Serializable {
     public void setName(String name){
         this.name=name;
     }
+    //</editor-fold>
 }
