@@ -49,14 +49,14 @@ public class Artikel implements Serializable {
     @ManyToMany
     List<Benutzer> benutzer = new ArrayList<>();
     
-    @OneToMany(mappedBy="artikel")
+    @OneToMany(mappedBy="artikelID")
     List<Nachricht> nachricht = new ArrayList<>();
     
     //<editor-fold defaultstate="collapsed" desc="Konstruktoren">
     public Artikel() {
     }
 
-    public Artikel(String beschreibung, String titel, long preis, Benutzer verkaeufer, Kategorie kategorie, Date erstellungsDatum, PreisKategorie preisKategorie) {
+    public Artikel(String beschreibung, String titel, long preis, Benutzer verkaeufer, Kategorie kategorie, Date erstellungsDatum, PreisKategorie preisKategorie, Ort ort) {
         this.beschreibung = beschreibung;
         this.titel = titel;
         this.preis = preis;
@@ -64,6 +64,7 @@ public class Artikel implements Serializable {
         this.kategorie = kategorie;
         this.erstellungsDatum = erstellungsDatum;
         this.preisKategorie = preisKategorie;
+        this.ort = ort;
     }
     //</editor-fold>
     
@@ -144,9 +145,8 @@ public class Artikel implements Serializable {
         return ort;
     }
     
-        public void setOrt(Ort ort){
+    public void setOrt(Ort ort){
         this.ort=ort;
     }
     //</editor-fold>
 }
-

@@ -19,6 +19,7 @@ public class Kategorie implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long slug = 0;
+    
     private String name = "";
     
     @OneToMany(mappedBy="kategorie")

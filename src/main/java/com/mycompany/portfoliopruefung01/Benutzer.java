@@ -49,7 +49,7 @@ public class Benutzer implements Serializable {
     //<editor-fold defaultstate="collapsed" desc="Konstruktoren">
     public Benutzer() {
     }
-
+    
     public Benutzer(String benutzerName, String emailAdresse, String passwort, String straße, String hausnummer, Ort ort, String vorname, String nachname, String telefonnummer) {
         this.benutzerName = benutzerName;
         this.emailAdresse = emailAdresse;
@@ -137,3 +137,4 @@ public class Benutzer implements Serializable {
     }
     //</editor-fold>
 }
+

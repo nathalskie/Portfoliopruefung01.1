@@ -27,14 +27,14 @@ public class Nachricht implements Serializable {
     private String text = "";
     
     @ManyToOne
-    private Artikel artikel;
+    private long artikelID;
     
-   @ManyToOne
+    @ManyToOne 
     private Benutzer sender;
     
     @ManyToOne
     private Benutzer empfaenger;
-    
+
     private Date datum = new Date();
     private Time uhrzeit;
     
@@ -43,10 +43,10 @@ public class Nachricht implements Serializable {
     public Nachricht() {
     }
 
-    public Nachricht(String betreff, String text, Artikel artikel, Benutzer sender, Benutzer empfaenger, Date datum, Time uhrzeit) {
+    public Nachricht(String betreff, String text, long artikelID, Benutzer sender, Benutzer empfaenger, Date datum, Time uhrzeit) {
         this.betreff = betreff;
         this.text = text;
-        this.artikel = artikel;
+        this.artikelID = artikelID;
         this.sender = sender;
         this.empfaenger = empfaenger;
         this.datum = datum;
@@ -78,13 +78,13 @@ public class Nachricht implements Serializable {
     public void setText(String text){
         this.text=text;
     }
-    
-    public Artikel getArtikel(){
-        return artikel;
+        
+    public long getArtikelID(){
+        return artikelID;
     }
     
-    public void setArtikel(Artikel artikel){
-        this.artikel=artikel;
+    public void setArtikelID(long artikelID){
+        this.artikelID=artikelID;
     }
     
     public Benutzer getSender(){
